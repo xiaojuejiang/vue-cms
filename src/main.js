@@ -18,6 +18,7 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
 
+
 import './css/commen.css'
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
