@@ -3,18 +3,23 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import homeContainer from '../pages/home/'
-import memberContainer from '../pages/member/'
-import shopcarContainer from '../pages/shopcar/'
-import searchContainer from '../pages/search/'
+import homeComponent from '../pages/home/'
+import memberComponent from '../pages/member/'
+import shopcarComponent from '../pages/shopcar/'
+import searchComponent from '../pages/search/'
+import newsListConponent from '../pages/newsList/'
+import newsInfoConponent from '../pages/newsinfo/'
+
 
 var router= new Router({
   routes: [
     {path:'/',redirect:'/home'},
-    {path:'/home',component:homeContainer},
-    {path:'/member',component:memberContainer},
-    {path:'/shopcar',component:shopcarContainer},
-    {path:'/search',component:searchContainer}
+    {path:'/home',component:homeComponent},
+    {path:'/member',component:memberComponent},
+    {path:'/shopcar',component:shopcarComponent},
+    {path:'/search',component:searchComponent},
+    {path:'/home/newsList',component:newsListConponent},
+    {path:'/home/newsinfo/:id',component:newsInfoConponent},
   ],
   linkActiveClass:'mui-active'
 })

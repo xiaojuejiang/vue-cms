@@ -9,15 +9,26 @@ import VueResource from 'vue-resource'
 //注册VueRource
 Vue.use(VueResource)
 
+Vue.http.options.root='http://www.lovegf.cn:8899/'
 Vue.config.productionTip = false
 //部分引入
-import { Header,Swipe, SwipeItem } from 'mint-ui';
+import {
+  Header,
+  Swipe,
+  SwipeItem,
+  button
+} from 'mint-ui';
 
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(button.name, button);
 
+import moment from 'moment'
 
+Vue.filter('dataFormat',function(dataStr,pattern='YYYY-MM-DD HH:mm:ss'){
+  return moment(dataStr).format(pattern)
+})
 
 import './css/commen.css'
 import './lib/mui/css/mui.css'
