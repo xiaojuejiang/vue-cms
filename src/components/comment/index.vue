@@ -33,12 +33,13 @@ export default {
   methods: {
     getComment() {
       this.$http
-        .get("api/getcomments/" + this.id + "?pageindex=" + this.pageindex)
+        .get("api/getcomments/" + this.$route.params.id + "?pageindex=" + this.pageindex)
         .then(result => {
           if (result.body.status == 0) {
             this.comments = this.comments.concat(result.body.message);
           } else {
-            Toast("数据获取失败");
+            // Toast("数据获取失败");
+            console.log(result)
           }
         });
     },

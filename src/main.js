@@ -10,19 +10,25 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
 Vue.http.options.root='http://www.lovegf.cn:8899/'
+Vue.http.options.emulateJSON=true
 Vue.config.productionTip = false
 //部分引入
 import {
   Header,
   Swipe,
   SwipeItem,
-  button
+  button,
+  Lazyload
 } from 'mint-ui';
 
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(button.name, button);
+Vue.use(Lazyload);
+
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
 
 import moment from 'moment'
 

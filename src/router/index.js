@@ -8,7 +8,9 @@ import memberComponent from '../pages/member/'
 import shopcarComponent from '../pages/shopcar/'
 import searchComponent from '../pages/search/'
 import newsListConponent from '../pages/newsList/'
-import newsInfoConponent from '../pages/newsinfo/'
+import newsInfoConponent from '../pages/newsInfo/'
+import photoListConponent from '../pages/photoList/'
+import photoInfoConponent from '../pages/photoInfo/'
 
 
 var router= new Router({
@@ -19,7 +21,9 @@ var router= new Router({
     {path:'/shopcar',component:shopcarComponent},
     {path:'/search',component:searchComponent},
     {path:'/home/newsList',component:newsListConponent},
-    {path:'/home/newsinfo/:id',component:newsInfoConponent},
+    {path:'/home/newsInfo/:id',component:newsInfoConponent},
+    {path:'/home/photoList',component:photoListConponent},
+    {path:'/home/photoInfo/:id',component:photoInfoConponent}
   ],
   linkActiveClass:'mui-active'
 })
