@@ -32,6 +32,14 @@
 </template>
 
 <script>
+import mui from "./lib/mui/js/mui.js";
+export default {
+  mounted() {
+    mui("body").on("click", "a", function() {
+      document.location.href = this.href;
+    });
+  }
+};
 </script>
 
 <style lang='less'>
@@ -39,20 +47,20 @@
   padding: 40px 0 50px;
   overflow-x: hidden;
   background-color: #fff;
-  .v-enter{
+  .v-enter {
     transform: translateX(100%);
     opacity: 0;
   }
-  .v-leave-to{
+  .v-leave-to {
     transform: translateX(-100%);
     opacity: 0;
   }
   .v-enter-active,
-  .v-leave-active{
+  .v-leave-active {
     transition: all 0.6s ease;
   }
-  .v-leave-active{
-    position: absolute
+  .v-leave-active {
+    position: absolute;
   }
 }
 </style>

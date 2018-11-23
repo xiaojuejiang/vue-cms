@@ -22,6 +22,27 @@
   </div>
 </template>
 <script >
+let list=[
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2928403139,2163908082&fm=200&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3544320516,1848639173&fm=26&gp=0.jpg',
+  'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3980292356,3797006540&fm=200&gp=0.jpg',
+  'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2311100375,966273641&fm=200&gp=0.jpg',
+  'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1850455861,3742372758&fm=200&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=494569066,2782559823&fm=200&gp=0.jpg',
+  'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4121682236,3921107638&fm=11&gp=0.jpg',
+  'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1936213564,4009680884&fm=26&gp=0.jpg',
+  'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2575571598,3372755324&fm=26&gp=0.jpg',
+  'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3893649938,14345137&fm=26&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4216326329,1156398150&fm=200&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4216326329,1156398150&fm=200&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4216326329,1156398150&fm=200&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4216326329,1156398150&fm=200&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4216326329,1156398150&fm=200&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=494569066,2782559823&fm=200&gp=0.jpg',
+  'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4121682236,3921107638&fm=11&gp=0.jpg',
+  'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=494569066,2782559823&fm=200&gp=0.jpg',
+  'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4121682236,3921107638&fm=11&gp=0.jpg'
+]
 import mui from "../../lib/mui/js/mui.js";
 import { Toast } from "mint-ui";
 export default {
@@ -47,6 +68,9 @@ export default {
         console.log(result);
         if (result.body.status == 0) {
           this.images = result.body.message;
+          this.images.forEach((e,i)=>{
+            e.img_url=list[i]
+          })
         } else {
           Toast("图片加载失败");
         }
@@ -58,10 +82,6 @@ export default {
     this.getImages(0);
   },
   mounted() {
-    mui("body").on("click", "a", function() {
-      document.location.href = this.href;
-    });
-    console.log('mounted')
     mui(".mui-scroll-wrapper").scroll({
       deceleration: 0.0005
     });
@@ -81,7 +101,7 @@ export default {
     > li {
       position: relative;
       margin-bottom: 10px;
-      box-shadow: 0 0 9 black;
+      box-shadow: 0px 0px 5px #000;
       image[lazy="loading"] {
         width: 40px;
         height: 300px;

@@ -16,23 +16,22 @@
 </template>
 <script >
 import comment from "../../components/comment/";
+
 export default {
   data() {
     return {
       id: this.$route.params.id,
       photoInfo: {},
-      subImageList: [
-        {
-          src: "https://placekitten.com/600/400",
+      list: [{
+          src: 'https://placekitten.com/600/400',
           w: 600,
           h: 400
-        },
-        {
-          src: "https://placekitten.com/1200/900",
+        }, {
+          src: 'https://placekitten.com/1200/900',
           w: 1200,
           h: 900
-        }
-      ]
+        }],
+      lists: []
     };
   },
   created() {
@@ -42,16 +41,21 @@ export default {
   methods: {
     getPhonoInfo() {
       this.$http.get("api/getimageInfo/" + this.id).then(result => {
-        console.log(result);
         if (result.body.status == 0) {
           this.photoInfo = result.body.message[0];
         }
       });
     },
-    getImageList(){
-      this.$http.get("api/getthumimages/"+this.id).then(result=>{
-        console.log(result)
-      })
+    getImageList() {
+      this.$http.get("api/getthumimages/" + this.id).then(result => {
+        if(result.body.status==0){
+          result.body.message.forEach(item => {
+              item.w=600
+              item.h=400
+          });
+          this.lists=result.body.message
+        }
+      });
     }
   },
   components: {
