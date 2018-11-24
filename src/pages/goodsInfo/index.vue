@@ -2,9 +2,9 @@
   <div class="goodsInfo-container">
     <!-- 小球 -->
     <transition
-      @beforeEnter="beforeEnter"
+      @before-enter="beforeEnter"
       @enter="enter"
-      @afterEnter="afterEnter">
+      @after-enter="afterEnter">
       <div class="ball" v-show="isflag"></div>
     </transition>
     <!-- 轮播图 -->
@@ -108,7 +108,7 @@ export default {
       el.style.transfrom="translate(0,0)"
     },
     enter(el,done){
-      el.offsetWidth
+      el.offsetWidth;
       el.style.transform="translate(93px,230px)"
       el.style.transition="all 1s ease"
       done()
