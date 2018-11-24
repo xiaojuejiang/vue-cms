@@ -11,6 +11,8 @@ import newsListConponent from '../pages/newsList/'
 import newsInfoConponent from '../pages/newsInfo/'
 import photoListConponent from '../pages/photoList/'
 import photoInfoConponent from '../pages/photoInfo/'
+import goodsListConponent from '../pages/goodsList/'
+import goodsInfoConponent from '../pages/goodsInfo/'
 
 
 var router= new Router({
@@ -23,7 +25,9 @@ var router= new Router({
     {path:'/home/newsList',component:newsListConponent},
     {path:'/home/newsInfo/:id',component:newsInfoConponent},
     {path:'/home/photoList',component:photoListConponent},
-    {path:'/home/photoInfo/:id',component:photoInfoConponent}
+    {path:'/home/photoInfo/:id',component:photoInfoConponent},
+    {path:'/home/goodsList',component:goodsListConponent},
+    {path:'/home/goodsInfo/:id',component:goodsInfoConponent,name:'home/goodsInfo'}
   ],
   linkActiveClass:'mui-active'
 })

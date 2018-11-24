@@ -1,49 +1,50 @@
 <template >
   <div class="home-container">
-    <mt-swipe :auto="1000" class="banner-swipe">
+    <!-- <mt-swipe :auto="1000" class="banner-swipe">
       <mt-swipe-item v-for="(item, index) in bannerList" :key="index">
         <a href="javascript:;">
           <img :src="item.img">
         </a>
       </mt-swipe-item>
-    </mt-swipe>
+    </mt-swipe> -->
+    <myswiper :bannerList="bannerList" :isfull="true"></myswiper>
     <!-- 9宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#/home/newsList">
+        <router-link to="/home/newsList">
           <img src="../../images/menu1.png" alt="">
           <div class="mui-media-body">新闻资讯</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#/home/photoList">
+        <router-link to="/home/photoList">
           <img src="../../images/menu2.png" alt="">
           <div class="mui-media-body">图片分享</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="/home/goodsList">
           <img src="../../images/menu3.png" alt="">
           <div class="mui-media-body">商品购买</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="#">
           <img src="../../images/menu4.png" alt="">
           <div class="mui-media-body">留言反馈</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="#">
           <img src="../../images/menu5.png" alt="">
           <div class="mui-media-body">视频专区</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="#">
           <img src="../../images/menu6.png" alt="">
           <div class="mui-media-body">联系我们</div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -71,6 +72,7 @@ let list=[
   'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4121682236,3921107638&fm=11&gp=0.jpg'
 ]
 import {Toast} from 'mint-ui'
+import myswiper from '../../components/swiper/'
 export default {
   data() {
     return {
@@ -95,19 +97,22 @@ export default {
         }
       })
     }
+  },
+  components:{
+    myswiper
   }
 };
 </script>
 <style lang='less' >
 .home-container {
-  .banner-swipe {
-    height: 200px;
-    background-color: pink;
-    img{
-      width: 100%;
-      height: 100%;
-    }
-  }
+  // .banner-swipe {
+  //   height: 200px;
+  //   background-color: pink;
+  //   img{
+  //     width: 100%;
+  //     height: 100%;
+  //   }
+  // }
   .mui-grid-view{
     background-color: #fff;
     border: none;
