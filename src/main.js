@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 //引入Vue-resource
 import VueResource from 'vue-resource'
@@ -44,6 +45,7 @@ import './lib/mui/css/icons-extra.css'
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

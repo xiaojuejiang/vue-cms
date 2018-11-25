@@ -1,5 +1,5 @@
 <template >
-  <mt-swipe :auto="1000" class="banner-swipe">
+  <mt-swipe :auto="4000" class="banner-swipe">
     <mt-swipe-item v-for="(item, index) in bannerList" :key="index">
       <a href="javascript:;">
         <img :src="item.img" :class="{full:isfull}">
@@ -15,7 +15,7 @@ export default {
 <style lang="less" >
 .banner-swipe {
   height: 200px;
-  background-color: pink;
+  text-align: center;
   img {
     height: 100%;
   }

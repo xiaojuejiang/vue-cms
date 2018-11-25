@@ -13,6 +13,8 @@ import photoListConponent from '../pages/photoList/'
 import photoInfoConponent from '../pages/photoInfo/'
 import goodsListConponent from '../pages/goodsList/'
 import goodsInfoConponent from '../pages/goodsInfo/'
+import goodsDetailConponent from '../pages/goodsDetail/'
+import goodsCommentConponent from '../pages/goodsComment/'
 
 
 var router= new Router({
@@ -27,7 +29,10 @@ var router= new Router({
     {path:'/home/photoList',component:photoListConponent},
     {path:'/home/photoInfo/:id',component:photoInfoConponent},
     {path:'/home/goodsList',component:goodsListConponent},
-    {path:'/home/goodsInfo/:id',component:goodsInfoConponent,name:'home/goodsInfo'}
+    {path:'/home/goodsInfo/:id',component:goodsInfoConponent,name:'home/goodsInfo'},
+    {path:'/home/goodsDetail/:id',component:goodsDetailConponent,name:'home/goodsDetail'},
+    {path:'/home/goodsComment/:id',component:goodsCommentConponent,name:'home/goodsComment'}
+
   ],
   linkActiveClass:'mui-active'
 })

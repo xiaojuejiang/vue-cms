@@ -2,7 +2,13 @@
   <div class="app-container">
 
     <!-- 头部 -->
-    <mt-header fixed title="vue cms"></mt-header>
+    <!-- <mt-header fixed title="vue cms">
+    </mt-header> -->
+    <mt-header fixed title="vue cms">
+      <span slot="left" @click="goBack" v-show="$route.path!='/home'">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
 
     <!-- 底部 -->
     <nav class="mui-bar mui-bar-tab">
@@ -15,7 +21,7 @@
         <span class="mui-tab-label">会员</span>
       </router-link>
       <router-link class="mui-tab-item" to="/shopcar">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+        <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{goodsAll}}</span></span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
       <router-link class="mui-tab-item" to="/search">
@@ -33,11 +39,20 @@
 
 <script>
 import mui from "./lib/mui/js/mui.js";
+import { mapGetters } from "vuex";
 export default {
   mounted() {
     mui("body").on("click", "a", function() {
       document.location.href = this.href;
     });
+  },
+  methods:{
+    goBack(){
+      this.$router.go(-1)
+    }
+  },
+  computed: {
+    ...mapGetters(["goodsAll"])
   }
 };
 </script>

@@ -33,7 +33,7 @@ export default {
   methods:{
     getGoodsList(){
       this.$http.get('api/getgoods?pageindex=1').then(result=>{
-        console.log(result)
+
         if(result.body.status===0){
 
           this.goodsList=result.body.message
@@ -43,7 +43,7 @@ export default {
       })
     },
     getGoods(id){
-      console.log('123')
+
       this.$router.push({
         name:'home/goodsInfo',params:{id:id}
       })
