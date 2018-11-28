@@ -25,9 +25,9 @@
         <div class="goods-items">
           购买数量:
           <div class="mui-numbox">
-            <input :disabled="ducdisabled" class="mui-btn mui-btn-numbox-minus" type="button" value="-" @tap="ducNum(item.id)">
+            <input :disabled="ducdisabled" class="mui-btn mui-btn-numbox-minus" type="button" value="-" @tap="ducNum">
             <input class="mui-input-numbox" type="text" v-model="num">
-            <input :disabled="adddisabled" class="mui-btn mui-btn-numbox-plus" type="button" value="+" @tap="addNum(item.id)">
+            <input :disabled="adddisabled" class="mui-btn mui-btn-numbox-plus" type="button" value="+" @tap="addNum">
           </div>
         </div>
         <p>
