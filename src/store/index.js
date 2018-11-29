@@ -24,7 +24,36 @@ const store = new Vuex.Store({
       if (!flag) {
         state.car.push(goods)
       }
-      localStorage.setItem('car',JSON.stringify(state.car))
+      localStorage.setItem('car', JSON.stringify(state.car))
+    },
+    ducCount: function (state, id) {
+      state.car.some(item => {
+        if (item.id == id) {
+          if(item.count>1){
+            item.count--
+          }
+          return true
+        }
+      })
+      localStorage.setItem('car', JSON.stringify(state.car))
+    },
+    addCount: function (state, id) {
+      state.car.some(item => {
+        if (item.id == id) {
+          item.count++
+          return true
+        }
+      })
+      localStorage.setItem('car', JSON.stringify(state.car))
+    },
+    handleChange: function (state, id) {
+      state.car.some(item => {
+        if (item.id == id) {
+          item.selected = !item.selected
+          return true
+        }
+      })
+      localStorage.setItem('car', JSON.stringify(state.car))
     }
   },
   getters: {
@@ -34,6 +63,33 @@ const store = new Vuex.Store({
         c += e.count
       });
       return c
+    },
+    goodsCount: function (state) {
+      let o = {}
+      state.car.some(item => {
+        o[item.id] = item.count
+      })
+      return o
+    },
+    goodsSelect: function (state) {
+      let o = {}
+      state.car.some(item => {
+        o[item.id] = item.selected
+      })
+      return o
+    },
+    goodsAmount: function (state) {
+      let o = {
+        count:0,
+        amount:{}
+      }
+      state.car.some(item => {
+        if (item.selected) {
+          o.count += item.count
+          o.amount[item.id]=item.count
+        }
+      })
+      return o
     }
   }
 })
