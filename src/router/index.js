@@ -34,7 +34,8 @@ var router= new Router({
     {path:'/home/goodsComment/:id',component:goodsCommentConponent,name:'home/goodsComment'}
 
   ],
-  linkActiveClass:'mui-active'
+  linkActiveClass:'mui-active',
+  // mode:'history'
 })
 
 export default router

@@ -19,13 +19,15 @@ import {
   Swipe,
   SwipeItem,
   button,
-  Lazyload
+  Lazyload,
+  Switch
 } from 'mint-ui';
 
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(button.name, button);
+Vue.component(Switch.name, Switch);
 Vue.use(Lazyload);
 
 import VuePreview from 'vue2-preview'

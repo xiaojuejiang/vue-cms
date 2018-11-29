@@ -3,9 +3,7 @@
     <div class="mui-card" v-for="(item, index) in goodsInfo" :key="index">
       <div class="mui-card-content">
         <!-- 内容区 -->
-        <div :class="['mui-switch', 'mui-switch-blue', {'mui-active':item.selected}, 'mui-switch-mini']">
-          <div class="mui-switch-handle"></div>
-        </div>
+        <mt-switch></mt-switch>
         <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2928403139,2163908082&fm=200&gp=0.jpg" alt="">
         <div class="goodsInfo">
           <h3>{{item.title}}</h3>
@@ -46,7 +44,6 @@ export default {
       this.$http
         .get("api/goods/getshopcarlist/" + idList.join(","))
         .then(result => {
-          console.log(result);
           if (result.body.status === 0) {
             this.goodsInfo = result.body.message;
             this.goodsInfo.forEach((item, i) => {
