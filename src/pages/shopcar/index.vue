@@ -39,7 +39,7 @@
                 @tap="addCount(item.id)"
               >
             </div>
-            <a href="#">删除</a>
+            <a href="javascript:;">删除</a>
           </div>
         </div>
       </div>
